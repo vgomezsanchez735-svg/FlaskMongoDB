@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.pyc
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Variables de entorno y secretos
+.env
+.env.local
+*.key
+
+# Flask
+instance/
+.webassets-cache
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs y temporales
+*.log
+*.tmp

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Streaming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Registro de películas</h1>
+    <img class="imagen-principal"
+    src="https://2.bp.blogspot.com/-TuOWNJl_2cg/Vr1jwn2Q4JI/AAAAAAAAAh4/gf49OMqYjI8/s1600/Collage.jpg"
+    alt="Flask+MongoDB">
+
+    <form action="/agregar" method="POST">
+        <!--
+        action="/agregar" → indica la ruta del servidor donde se enviarán
+        los datos
+        method="POST" → envía los datos de forma segura (no visible en la
+        URL) -->
+        <input type="text" name="titulo" placeholder="Título" required>
+        <!-- Campo para capturar el título de la película -->
+
+        <input type="text" name="genero" placeholder="Género" required>
+        <!-- Campo para capturar el género -->
+
+        <input type="number" name="anio" placeholder="Año" required>
+        <!-- Campo numérico para capturar el año -->
+
+        <button type="submit">Guardar</button>
+        <!-- Botón que envía el formulario -->
+    </form>
+
+    <h2>Lista de películas</h2>
+
+    <table border="1">
+        <!-- Tabla para mostrar los datos -->
+        <tr>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Año</th>
+            <th>Acciones</th> <!--Campo para mostrar acciones-->
+            <th>Actualizar</th>
+        </tr>
+        <!-- Encabezados de la tabla -->
+
+        {% for pelicula in peliculas %}
+        <!--
+        Bucle de Jinja2 (Flask)
+        Recorre la lista de películas enviada desde Python -->
+        <tr>
+            <td>{{ pelicula.titulo }}</td>
+            <!-- Muestra el título de la película -->
+
+            <td>{{ pelicula.genero }}</td>
+            <!-- Muestra el género -->
+
+            <td>{{ pelicula.anio }}</td>
+            <!-- Muestra el año -->
+            <td> 
+                <a href="/eliminar/{{ pelicula._id }}"  
+                    onclick="return confirm('¿Estás seguro de eliminar esta película?')"> 
+                    Eliminar 
+                </a> 
+            </td><!-- Enlace para eliminar la película con confirmación JavaScript -->
+
+            <td> 
+                <a href="/editar/{{ pelicula._id }}">Editar</a> <!-- Enlace para editar la 
+                película --> 
+            </td> 
+        </tr> 
+        {% endfor %} 
+<!-- Fin del ciclo --> 
+    </table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+    font-family: Arial;
+    background-color: #e49aeb;
+    text-align: center;
+}
+
+h1 {
+    color: #0b0a0a;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    color: #5b076c;
+}
+
+th, td {
+    padding: 10px;
+}
+
+button {
+    background-color: #9d3dc9;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+/* Estilo para la imagen de Flask + MongoDB */
+.imagen-principal {
+    width: 350px;              /* Ancho de la imagen */
+    max-width: 90%;            /* Que no se salga en pantallas chicas */
+    display: block;            /* Para poder centrarla */
+    margin: 10px auto 20px auto; /* Centrada arriba y abajo */
+    border-radius: 15px;       /* Esquinas redondeadas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombríta */
+}

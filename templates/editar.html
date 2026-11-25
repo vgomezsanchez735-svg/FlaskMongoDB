@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar película</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Editar película</h1>
+
+    <form action="/actualizar/{{ pelicula._id }}" method="POST">
+        <!--
+        action="/actualizar/{{ pelicula._id }}"
+        Envía el formulario a la ruta de Flask para actualizar
+        pelicula._id es el identificador único del documento en MongoDB
+        method="POST"
+        Se usa POST porque estamos enviando datos para modificar
+        información -->
+
+        <input type="text" name="titulo" value="{{ pelicula.titulo }}" required>
+        <!--
+        Campo de texto para el título
+        value="{{ pelicula.titulo }}" carga el valor actual desde MongoDB
+        required obliga a que el campo no esté vacío -->
+
+        <input type="text" name="genero" value="{{ pelicula.genero }}" required>
+        <!--
+        Campo de texto para el género
+        Se llena automáticamente con el valor existente -->
+
+        <input type="number" name="anio" value="{{ pelicula.anio }}" required>
+        <!--
+        Campo numérico para el año
+        type="number" restringe a valores numéricos
+        value muestra el año actual de la película -->
+
+        <button type="submit">Actualizar</button>
+        <!--
+        Botón para enviar el formulario
+        Al hacer clic, se envían los datos a Flask -->
+    </form>
+</body>
+</html>
